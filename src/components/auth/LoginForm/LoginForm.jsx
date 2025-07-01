@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from '../../../features/auth/authSlice';
 
 export const Login = () => {
   const [formData, setFormData] = useState({
@@ -15,9 +17,11 @@ export const Login = () => {
     });
   };
 
+  const dispatch = useDispatch();
+
   const onSubmit = (e) => {
     e.preventDefault();
-    // El dispatch aquí
+    dispatch(login(formData));
   };
 
   return (
