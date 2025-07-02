@@ -27,7 +27,13 @@ export const Login = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <>
+    <main className='home'>
+    <h1>Chewbooka</h1>
+    <article className='home__container'>
+    <h2>"No necesito la Fuerza... necesito café."</h2>
+    <div className='form__container'>
+    <form onSubmit={onSubmit} className='form'>
       <label>
         Correo Electrónico:
         <input
@@ -54,5 +60,10 @@ export const Login = () => {
 
       <button type="submit">Iniciar Sesión</button>
     </form>
+  </div>
+  </article>
+      <button type="submit" className='register__button'>Regístrate</button>
+  </main>
+  </>
   );
 };

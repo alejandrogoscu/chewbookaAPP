@@ -4,7 +4,7 @@ import './loginform.css';
 
 export const InputPass = ({ className, value, onChange, name, placeholder }) => {
   return (
-    <Space direction="vertical" style={{ width: '100%' }}>
+    <Space>
       <Input.Password
         className={className}
         size="large"
