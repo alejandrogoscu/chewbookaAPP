@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../../../features/auth/authSlice';
+import { register, reset } from '../../../features/auth/authSlice';
+import { notification } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 export const Register = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -10,15 +15,11 @@ export const Register = () => {
   });
 
   const { username, email, password } = formData;
-  const { isSuccess, message } = useSelector((state) => state.auth);
+  const { isSuccess, message, isError } = useSelector((state) => state.auth);
 
-  useEffect(() => {
-    if (isSuccess) {
-      notificacion;
-    }
-  });
-
-  const dispatch = useDispatch();
+  const clearForm = () => {
+    setFormData({ username: '', email: '', password: '' });
+  };
 
   const onChange = (e) => {
     setFormData({
@@ -31,6 +32,24 @@ export const Register = () => {
     e.preventDefault();
     dispatch(register(formData));
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      notification.success({
+        message: 'Registrado con éxito',
+        description: message || 'Te enviamos un mail de confirmación',
+      });
+      clearForm();
+      navigate('/');
+    }
+    if (isError) {
+      notification.error({
+        message: 'Error al registrarte',
+        description: message || 'Se ha producido un error en el registro',
+      });
+    }
+    dispatch(reset());
+  }, [isSuccess, isError, message]);
 
   return (
     <form onSubmit={onSubmit}>

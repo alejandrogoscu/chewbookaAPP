@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import authService from './authService';
-import { message } from 'antd';
 
 const user = JSON.parse(localStorage.getItem('user') || null);
 const token = JSON.parse(localStorage.getItem('token') || null);
@@ -16,9 +15,23 @@ const initialState = {
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    reset: (state) => {
+      state.isError = false;
+      state.isSuccess = false;
+      state.message = '';
+    },
+  },
   extraReducers: (builder) => {
     builder
+      .addCase(register.fulfilled, (state, action) => {
+        state.isSuccess = true;
+        state.message = action.payload.message;
+      })
+      .addCase(register.rejected, (state, action) => {
+        state.isError = true;
+        state.message = action.payload;
+      })
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
@@ -30,11 +43,12 @@ export const authSlice = createSlice({
   },
 });
 
-export const register = createAsyncThunk('auth/register', async (user) => {
+export const register = createAsyncThunk('auth/register', async (user, thunkAPI) => {
   try {
     return await authService.register(user);
   } catch (error) {
-    console.log(error);
+    const message = error.response.data.error[0].message;
+    return thunkAPI.rejectWithValue(message);
   }
 });
 
@@ -53,5 +67,7 @@ export const logout = createAsyncThunk('auth/logout', async () => {
     console.log(error);
   }
 });
+
+export const { reset } = authSlice.actions;
 
 export default authSlice.reducer;
