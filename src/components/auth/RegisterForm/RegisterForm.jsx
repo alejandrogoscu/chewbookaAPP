@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { register } from '../../../features/auth/authSlice';
 
 export const Register = () => {
@@ -10,6 +10,13 @@ export const Register = () => {
   });
 
   const { username, email, password } = formData;
+  const { isSuccess, message } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (isSuccess) {
+      notificacion;
+    }
+  });
 
   const dispatch = useDispatch();
 

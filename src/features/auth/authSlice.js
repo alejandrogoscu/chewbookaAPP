@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import authService from './authService';
+import { message } from 'antd';
 
 const user = JSON.parse(localStorage.getItem('user') || null);
 const token = JSON.parse(localStorage.getItem('token') || null);
@@ -7,6 +8,9 @@ const token = JSON.parse(localStorage.getItem('token') || null);
 const initialState = {
   user: user,
   token: token,
+  isError: false,
+  isSuccess: false,
+  message: '',
 };
 
 export const authSlice = createSlice({
