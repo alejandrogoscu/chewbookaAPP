@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../../features/auth/authSlice';
-import { InputPass } from './InputPass';
+import { InputPass } from '../../common/Inputs/InputPass';
+import { CustomInput } from '../../common/Inputs/Input';
+import { MailOutlined } from '@ant-design/icons';
+import { CustomButton } from '../../common/Button/Button';
 import './loginform.css';
 
 export const Login = () => {
@@ -36,29 +39,30 @@ export const Login = () => {
     <form onSubmit={onSubmit} className='form'>
       <label>
         Correo Electrónico:
-        <input
-          type="email"
+        <CustomInput
+          className="loginform__input"
           name="email"
           value={email}
           onChange={onChange}
-          placeholder="hansolo@milleniumfalcon.com"
-          required
+          placeholder="hansolo@falconcrew.com"
+          prefix={<MailOutlined />}
         />
       </label>
 
       <label>
         Contraseña:
-        {/* <input type="password" name="password" value={password} onChange={onChange} placeholder="Contraseña" required /> */}
         <InputPass
+          className="loginform__input"
           name="password"
           value={password}
           onChange={onChange}
           placeholder="Contraseña"
-          className="loginform__input"
         />
       </label>
 
-      <button type="submit">Iniciar Sesión</button>
+      <CustomButton className="loginform__btn" htmlType="submit">
+        Iniciar Sesión
+      </CustomButton>
     </form>
   </div>
   </article>
