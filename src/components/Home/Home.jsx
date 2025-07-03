@@ -1,10 +1,21 @@
 import { Login } from '../auth/LoginForm/LoginForm';
+import { Button } from 'antd';
 import chewLogo from '../../assets/chewLogo.png';
+import { Link } from 'react-router-dom';
+import Squares from '../../blocks/Backgrounds/Squares/Squares';
 import './Home.css';
 
 const Home = () => {
   return (
     <>
+      <Squares
+        className="squares-canvas"
+        speed={0.5}
+        squareSize={40}
+        direction="diagonal"
+        borderColor="#fff"
+        hoverFillColor="#222"
+      />
       <main className="home">
         <div className="home__info">
           <div className="home__logoTitle-container">
@@ -15,6 +26,12 @@ const Home = () => {
         </div>
         <div className="home__loginForm">
           <Login />
+        </div>
+        <div className="home__register">
+          <p className="home__register-text">¿Nuevo en la galaxia?</p>
+          <Link to={'/register'}>
+            <Button className="home__register-btn">Crea tu cuenta</Button>
+          </Link>
         </div>
       </main>
     </>

@@ -1,3 +1,10 @@
+.squares-canvas {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
 .home {
   width: 95%;
   margin: 0 auto;
@@ -83,6 +90,36 @@
 
   &:hover {
     color: var(--accent) !important;
+  }
+}
+
+.home__register {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-family: var(--text);
+  font-size: 1.3rem;
+}
+
+.home__register-text {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.home__register-btn {
+  padding: 25px 15px;
+  background-color: var(--blanco);
+  border: none;
+  font-family: var(--title);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+
+  &:hover {
+    color: var(--blanco) !important;
+    background-color: var(--accent) !important;
   }
 }
 
