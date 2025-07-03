@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import App from './App.jsx';
 import { Provider } from 'react-redux';
 import { store } from './app/store.js';
+import '@ant-design/v5-patch-for-react-19';
 import './index.css';
 
 createRoot(document.getElementById('root')).render(
