@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../../features/auth/authSlice';
-import { InputPass } from '../../common/Inputs./Inputs/InputPass';
+import { InputPass } from '../../common/Inputs/InputPass';
 import { CustomInput } from '../../common/Inputs/Input';
-import './loginform.css';
 import { MailOutlined } from '@ant-design/icons';
 import { CustomButton } from '../../common/Button/Button';
+import './loginform.css';
 
 export const Login = () => {
   const [formData, setFormData] = useState({
