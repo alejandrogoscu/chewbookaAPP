@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { register, reset } from '../../../features/auth/authSlice';
 import { notification } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import { CustomInput } from '../../common/Inputs/Input';
+import { MailOutlined, UserOutlined } from '@ant-design/icons';
+import { InputPass } from '../../common/Inputs/InputPass';
+import { CustomButton } from '../../common/Button/Button';
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -12,9 +16,10 @@ export const Register = () => {
     username: '',
     email: '',
     password: '',
+    password2: '',
   });
 
-  const { username, email, password } = formData;
+  const { username, email, password, password2 } = formData;
   const { isSuccess, message, isError } = useSelector((state) => state.auth);
 
   const clearForm = () => {
@@ -30,7 +35,14 @@ export const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(register(formData));
+    if (password !== password2) {
+      return notification.error({
+        message: 'Error',
+        description: 'La contraseña no coincide',
+      });
+    } else {
+      return dispatch(register(formData));
+    }
   };
 
   useEffect(() => {
@@ -53,36 +65,57 @@ export const Register = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <label>
+      <label className="registerForm__label">
         Nombre de Usuario:
-        <input type="text" name="username" value={username} onChange={onChange} placeholder="Han Solo" required />
+        <CustomInput
+          className="registerForm__input"
+          type="text"
+          name="username"
+          value={username}
+          onChange={onChange}
+          placeholder="Han Solo"
+          prefix={<UserOutlined />}
+        />
       </label>
 
       <label>
         Correo Electrónico:
-        <input
+        <CustomInput
+          className="registerForm__input"
           type="email"
           name="email"
           value={email}
           onChange={onChange}
           placeholder="hansolo@milleniumfalcon.com"
-          required
+          prefix={<MailOutlined />}
         />
       </label>
 
       <label>
         Contraseña:
-        <input
-          type="password"
+        <InputPass
+          className="registerForm__input"
           name="password"
           value={password}
           onChange={onChange}
-          placeholder="Hansolomola"
-          required
+          placeholder="hansolomola123"
         />
       </label>
 
-      <button type="submit">Registrate</button>
+      <label>
+        Repetir Contraseña:
+        <InputPass
+          className="registerForm__input"
+          name="password2"
+          value={password2}
+          onChange={onChange}
+          placeholder="hansolomola123"
+        />
+      </label>
+
+      <CustomButton className="registerform__btn" htmlType="submit">
+        Registrarse
+      </CustomButton>
     </form>
   );
 };
