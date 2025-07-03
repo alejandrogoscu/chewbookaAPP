@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../../features/auth/authSlice';
-import { InputPass } from '../../common/Inputs/InputPass';
+import { InputPass } from '../../common/Inputs./Inputs/InputPass';
 import { CustomInput } from '../../common/Inputs/Input';
 import './loginform.css';
 import { MailOutlined } from '@ant-design/icons';
@@ -50,7 +50,7 @@ export const Login = () => {
           name="password"
           value={password}
           onChange={onChange}
-          placeholder="hansolomola123"
+          placeholder="Contraseña"
         />
       </label>
 
