@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../../features/auth/authSlice';
-import { InputPass } from './InputPass';
+import { InputPass } from '../Inputs/InputPass';
 import './loginform.css';
 
 export const Login = () => {
@@ -42,13 +42,12 @@ export const Login = () => {
 
       <label>
         Contraseña:
-        {/* <input type="password" name="password" value={password} onChange={onChange} placeholder="Contraseña" required /> */}
         <InputPass
+          className="loginform__input"
           name="password"
           value={password}
           onChange={onChange}
           placeholder="Contraseña"
-          className="loginform__input"
         />
       </label>
 
