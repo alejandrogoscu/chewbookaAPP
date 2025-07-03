@@ -1,0 +1,93 @@
+.home {
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 40px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.home__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.home__logoTitle-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__logo {
+  width: 160px;
+}
+
+.home__title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  font-family: var(--title);
+  color: var(--accent);
+  line-height: 0.1;
+}
+
+.home__text {
+  font-size: 1.2rem;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.home__loginForm {
+  width: 80%;
+  padding: 25px;
+  background-color: var(--azul);
+  border-radius: 15px;
+}
+
+.loginform__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  font-weight: 500;
+}
+
+.loginform__label {
+  width: 100%;
+  text-align: center;
+}
+
+.loginform__input {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.loginform__btn {
+  align-self: center;
+  padding: 25px 15px;
+  margin-top: 20px;
+  background-color: var(--accent);
+  border: none;
+  font-family: var(--title);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--blanco);
+
+  &:hover {
+    color: var(--accent) !important;
+  }
+}
+
+@media (width > 780px) {
+  .home__loginForm {
+    width: 60%;
+  }
+}

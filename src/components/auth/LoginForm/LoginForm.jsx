@@ -31,43 +31,34 @@ export const Login = () => {
 
   return (
     <>
-    <main className='home'>
-    <h1>Chewbooka</h1>
-    <article className='home__container'>
-    <h2>"No necesito la Fuerza... necesito café."</h2>
-    <div className='form__container'>
-    <form onSubmit={onSubmit} className='form'>
-      <label>
-        Correo Electrónico:
-        <CustomInput
-          className="loginform__input"
-          name="email"
-          value={email}
-          onChange={onChange}
-          placeholder="hansolo@falconcrew.com"
-          prefix={<MailOutlined />}
-        />
-      </label>
+      <form onSubmit={onSubmit} className="loginform__form">
+        <label className="loginform__label">
+          {/* Correo Electrónico: */}
+          <CustomInput
+            className="loginform__input"
+            name="email"
+            value={email}
+            onChange={onChange}
+            /* placeholder="hansolo@falconcrew.com" */
+            prefix={<MailOutlined />}
+          />
+        </label>
 
-      <label>
-        Contraseña:
-        <InputPass
-          className="loginform__input"
-          name="password"
-          value={password}
-          onChange={onChange}
-          placeholder="Contraseña"
-        />
-      </label>
+        <label className="loginform__label">
+          {/*  Contraseña: */}
+          <InputPass
+            className="loginform__input"
+            name="password"
+            value={password}
+            onChange={onChange}
+            /* placeholder="Contraseña" */
+          />
+        </label>
 
-      <CustomButton className="loginform__btn" htmlType="submit">
-        Iniciar Sesión
-      </CustomButton>
-    </form>
-  </div>
-  </article>
-      <button type="submit" className='register__button'>Regístrate</button>
-  </main>
-  </>
+        <CustomButton className="loginform__btn" htmlType="submit">
+          Iniciar Sesión
+        </CustomButton>
+      </form>
+    </>
   );
 };
