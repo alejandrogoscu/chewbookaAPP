@@ -17,14 +17,16 @@ const Home = () => {
             </div>
             <h2 className="home__text">Explora. Conecta. Postea desde cualquier rincón del hiperespacio</h2>
           </div>
-          <div className="home__loginForm">
-            <Login />
-          </div>
-          <div className="home__register">
-            <p className="home__register-text">¿Nuevo en la galaxia?</p>
-            <Link to={'/register'}>
-              <Button className="home__register-btn">Crea tu cuenta</Button>
-            </Link>
+          <div className="home__formContainer">
+            <div className="home__loginForm">
+              <Login />
+            </div>
+            <div className="home__register">
+              <p className="home__register-text">¿Nuevo en la galaxia?</p>
+              <Link to={'/register'}>
+                <Button className="home__register-btn">Crea tu cuenta</Button>
+              </Link>
+            </div>
           </div>
         </main>
       </Layout>

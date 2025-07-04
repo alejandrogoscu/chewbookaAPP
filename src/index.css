@@ -24,3 +24,7 @@
   --accent: #00a1e0;
   --blanco: #ffffff;
 }
+
+body {
+  margin: 0;
+}
