@@ -7,6 +7,8 @@ import { CustomInput } from '../../common/Inputs/Input';
 import { MailOutlined, UserOutlined } from '@ant-design/icons';
 import { InputPass } from '../../common/Inputs/InputPass';
 import { CustomButton } from '../../common/Button/Button';
+import chewLogo from '../../../assets/chewLogo.png';
+import Layout from '../../common/Layout/Layout';
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -64,58 +66,67 @@ export const Register = () => {
   }, [isSuccess, isError, message]);
 
   return (
-    <form onSubmit={onSubmit}>
-      <label className="registerForm__label">
-        Nombre de Usuario:
-        <CustomInput
-          className="registerForm__input"
-          type="text"
-          name="username"
-          value={username}
-          onChange={onChange}
-          placeholder="Han Solo"
-          prefix={<UserOutlined />}
-        />
-      </label>
+    <Layout>
+      <main className="home">
+        <div className="home__logoTitle-container">
+          <img className="home__logo" src={chewLogo}></img>
+          <h1 className="home__title">Chewbooka</h1>
+        </div>
 
-      <label>
-        Correo Electrónico:
-        <CustomInput
-          className="registerForm__input"
-          type="email"
-          name="email"
-          value={email}
-          onChange={onChange}
-          placeholder="hansolo@milleniumfalcon.com"
-          prefix={<MailOutlined />}
-        />
-      </label>
+        <form onSubmit={onSubmit}>
+          <label className="registerForm__label">
+            Nombre de Usuario:
+            <CustomInput
+              className="registerForm__input"
+              type="text"
+              name="username"
+              value={username}
+              onChange={onChange}
+              placeholder="Han Solo"
+              prefix={<UserOutlined />}
+            />
+          </label>
 
-      <label>
-        Contraseña:
-        <InputPass
-          className="registerForm__input"
-          name="password"
-          value={password}
-          onChange={onChange}
-          placeholder="hansolomola123"
-        />
-      </label>
+          <label>
+            Correo Electrónico:
+            <CustomInput
+              className="registerForm__input"
+              type="email"
+              name="email"
+              value={email}
+              onChange={onChange}
+              placeholder="hansolo@milleniumfalcon.com"
+              prefix={<MailOutlined />}
+            />
+          </label>
 
-      <label>
-        Repetir Contraseña:
-        <InputPass
-          className="registerForm__input"
-          name="password2"
-          value={password2}
-          onChange={onChange}
-          placeholder="hansolomola123"
-        />
-      </label>
+          <label>
+            Contraseña:
+            <InputPass
+              className="registerForm__input"
+              name="password"
+              value={password}
+              onChange={onChange}
+              placeholder="hansolomola123"
+            />
+          </label>
 
-      <CustomButton className="registerform__btn" htmlType="submit">
-        Registrarse
-      </CustomButton>
-    </form>
+          <label>
+            Repetir Contraseña:
+            <InputPass
+              className="registerForm__input"
+              name="password2"
+              value={password2}
+              onChange={onChange}
+              placeholder="hansolomola123"
+            />
+          </label>
+
+          <CustomButton className="registerform__btn" htmlType="submit">
+            Registrarse
+          </CustomButton>
+        </form>
+      </main>
+    </Layout>
   );
 };
