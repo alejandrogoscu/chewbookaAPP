@@ -6,12 +6,12 @@ import { useRef, useEffect } from 'react';
 import './Squares.css';
 
 const Squares = ({
-  direction = 'right',
+  direction = 'diagonal',
   speed = 1,
-  borderColor = '#999',
+  borderColor = '#00a1e0',
   squareSize = 40,
   hoverFillColor = '#222',
-  className = ''
+  className = '',
 }) => {
   const canvasRef = useRef(null);
   const requestRef = useRef(null);
