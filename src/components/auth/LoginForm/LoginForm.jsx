@@ -31,7 +31,7 @@ export const Login = () => {
 
   return (
     <>
-      <form onSubmit={onSubmit} className="loginform__form">
+      <form className="loginform__form" onSubmit={onSubmit}>
         <label className="loginform__label">
           {/* Correo Electrónico: */}
           <CustomInput
@@ -39,7 +39,7 @@ export const Login = () => {
             name="email"
             value={email}
             onChange={onChange}
-            /* placeholder="hansolo@falconcrew.com" */
+            placeholder="hansolo@milleniumfalcon.com"
             prefix={<MailOutlined />}
           />
         </label>
@@ -51,7 +51,7 @@ export const Login = () => {
             name="password"
             value={password}
             onChange={onChange}
-            /* placeholder="Contraseña" */
+            placeholder="hansolomola123"
           />
         </label>
 

@@ -60,6 +60,7 @@
   background: var(--azul);
   background: radial-gradient(at center, #00a2e0, #2658a9);
   border-radius: 15px;
+  opacity: 0.8;
 }
 
 .loginform__form {
@@ -87,15 +88,16 @@
   align-self: center;
   padding: 25px 15px;
   margin-top: 20px;
-  background-color: var(--accent);
+  background-color: var(--blanco);
   border: none;
   font-family: var(--title);
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--blanco);
+  color: var(--accent);
 
   &:hover {
-    color: var(--accent) !important;
+    color: var(--blanco) !important;
+    background-color: var(--accent) !important;
   }
 }
 
@@ -116,16 +118,15 @@
 
 .home__register-btn {
   padding: 25px 15px;
-  background-color: var(--blanco);
+  background-color: var(--accent);
   border: none;
   font-family: var(--title);
   font-size: 1rem;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--blanco);
 
   &:hover {
-    color: var(--blanco) !important;
-    background-color: var(--accent) !important;
+    color: var(--accent) !important;
   }
 }
 

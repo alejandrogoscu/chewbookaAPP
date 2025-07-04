@@ -1,9 +1,9 @@
 import { Login } from '../auth/LoginForm/LoginForm';
 import { Button } from 'antd';
+import Layout from '../common/Layout/Layout';
 import chewLogo from '../../assets/chewLogo.png';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import Layout from '../common/Layout/Layout';
 
 const Home = () => {
   return (
