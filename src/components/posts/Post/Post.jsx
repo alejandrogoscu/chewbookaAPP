@@ -1,26 +1,20 @@
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
 
-const Post = ({ posts }) => {
-console.log('Tipo de posts:', typeof posts); //Es un objeto
-if (!Array.isArray(posts)) {
-    return <p>No hay posts disponibles o el formato es incorrecto.</p>;
-  }
-const listaPosts = Array.isArray(posts)
-  ? posts 
-  : posts.data
-  ? posts.data
-  : Object.values(posts);
+const Post = () => {
+  const postsState = useSelector((state) => state.posts.posts);
+  const posts = postsState.posts;
 
-  return (
-    <div>
-        {listaPosts.map((post, index) => (
-          <div className='post' key={post._id || index}>
-              <p>{post.title}</p>
-          </div>
-        ))}
-    </div>
-  )
-}
+  console.log(posts);
+  const post = posts.map((post) => {
+    return (
+      <div>
+        <h2>{post.title}</h2>
+        <p>{post.content}</p>
+        <img src={post.images}></img>
+      </div>
+    );
+  });
+
+  return <div>{post}</div>;
+};
 export default Post;
-
-  
