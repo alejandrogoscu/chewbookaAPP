@@ -12,6 +12,8 @@ const login = async (userData) => {
   if (res.data) {
     localStorage.setItem('user', JSON.stringify(res.data.user));
     localStorage.setItem('token', JSON.stringify(res.data.token));
+    localStorage.setItem('posts', JSON.stringify(res.data.posts));
+    localStorage.setItem('comments', JSON.stringify(res.data.comments));
   }
   return res.data;
 };

@@ -3,10 +3,14 @@ import authService from './authService';
 
 const user = JSON.parse(localStorage.getItem('user') || null);
 const token = JSON.parse(localStorage.getItem('token') || null);
+const posts = JSON.parse(localStorage.getItem('posts') || null);
+const comments = JSON.parse(localStorage.getItem('comments') || null);
 
 const initialState = {
   user: user,
   token: token,
+  posts: posts,
+  comments: comments,
   isError: false,
   isSuccess: false,
   message: '',
@@ -35,10 +39,14 @@ export const authSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
+        state.posts = action.payload.posts;
+        state.comments = action.payload.comments;
       })
       .addCase(logout.fulfilled, (state) => {
         state.user = null;
         state.token = null;
+        state.posts = [];
+        state.comments = [];
       });
   },
 });
