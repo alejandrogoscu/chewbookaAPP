@@ -1,0 +1,22 @@
+/* Dashboard.css */
+.dashboard {
+  display: flex;
+  height: 100dvh;
+  justify-content: center;
+  padding-top: 1rem;
+  padding-bottom: 4rem; /* deja espacio para navbar móvil en mobile */
+  background-color: var(--oscuro);
+}
+
+/* Este margen evita que el contenido pise el navbar en desktop */
+@media screen and (min-width: 640px) {
+  .dashboard {
+    margin-left: 282px; /* mismo ancho que tu navbar desktop */
+  }
+}
+
+.feed {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 1rem;
+}

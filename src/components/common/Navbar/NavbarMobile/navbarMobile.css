@@ -1,0 +1,9 @@
+.navbar__mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--accent);
+  border-top: 1px solid var(--blanco);
+}
