@@ -1,0 +1,64 @@
+.register {
+  width: 80%;
+  height: 100dvh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.register__container {
+  width: 80%;
+  max-width: 600px;
+  padding: 25px;
+  margin-top: -20px;
+  background: var(--azul);
+  background: radial-gradient(at center, #00a2e0, #2658a9);
+  border-radius: 15px;
+  opacity: 0.8;
+}
+
+.registerForm__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  font-weight: 500;
+}
+
+.registerForm__label {
+  width: 100%;
+  text-align: center;
+}
+
+.registerForm__input {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.registerform__btn {
+  align-self: center;
+  padding: 25px 15px;
+  margin-top: 20px;
+  background-color: var(--blanco);
+  border: none;
+  font-family: var(--title);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+
+  &:hover {
+    color: var(--blanco) !important;
+    background-color: var(--accent) !important;
+  }
+}
+
+.ant-notification {
+  background: radial-gradient(at center, #00a2e0, #2658a9);
+  color: var(--blanco);
+}

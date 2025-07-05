@@ -1,0 +1,138 @@
+.home {
+  width: 80%;
+  height: 100dvh;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
+}
+
+.home__info {
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.home__logoTitle-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__logo {
+  width: 160px;
+}
+
+.home__title {
+  font-size: 2.9rem;
+  font-weight: 800;
+  font-family: var(--title);
+  color: var(--accent);
+  line-height: 0.1;
+}
+
+.home__text {
+  font-size: 1.2rem;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.home__formContainer {
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.home__loginForm {
+  width: 80%;
+  padding: 25px;
+  background: var(--azul);
+  background: radial-gradient(at center, #00a2e0, #2658a9);
+  border-radius: 15px;
+  opacity: 0.8;
+}
+
+.loginform__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  font-weight: 500;
+}
+
+.loginform__label {
+  width: 100%;
+  text-align: center;
+}
+
+.loginform__input {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.loginform__btn {
+  align-self: center;
+  padding: 25px 15px;
+  margin-top: 20px;
+  background-color: var(--blanco);
+  border: none;
+  font-family: var(--title);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+
+  &:hover {
+    color: var(--blanco) !important;
+    background-color: var(--accent) !important;
+  }
+}
+
+.home__register {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-family: var(--text);
+  font-size: 1.3rem;
+  padding: 20px;
+}
+
+.home__register-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.home__register-btn {
+  padding: 25px 15px;
+  background-color: var(--accent);
+  border: none;
+  font-family: var(--title);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--blanco);
+
+  &:hover {
+    color: var(--accent) !important;
+  }
+}
+
+@media (width > 780px) {
+  .home__loginForm {
+    width: 60%;
+  }
+}

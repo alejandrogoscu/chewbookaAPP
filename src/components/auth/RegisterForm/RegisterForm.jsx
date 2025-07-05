@@ -3,6 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { register, reset } from '../../../features/auth/authSlice';
 import { notification } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import { CustomInput } from '../../common/Inputs/Input';
+import { MailOutlined, UserOutlined } from '@ant-design/icons';
+import { InputPass } from '../../common/Inputs/InputPass';
+import { CustomButton } from '../../common/Button/Button';
+import chewLogo from '../../../assets/chewLogo.png';
+import Layout from '../../common/Layout/Layout';
+import './registerForm.css';
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -12,9 +19,10 @@ export const Register = () => {
     username: '',
     email: '',
     password: '',
+    password2: '',
   });
 
-  const { username, email, password } = formData;
+  const { username, email, password, password2 } = formData;
   const { isSuccess, message, isError } = useSelector((state) => state.auth);
 
   const clearForm = () => {
@@ -30,7 +38,14 @@ export const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(register(formData));
+    if (password !== password2) {
+      return notification.error({
+        message: 'Error',
+        description: 'La contraseña no coincide',
+      });
+    } else {
+      return dispatch(register(formData));
+    }
   };
 
   useEffect(() => {
@@ -52,37 +67,65 @@ export const Register = () => {
   }, [isSuccess, isError, message]);
 
   return (
-    <form onSubmit={onSubmit}>
-      <label>
-        Nombre de Usuario:
-        <input type="text" name="username" value={username} onChange={onChange} placeholder="Han Solo" required />
-      </label>
+    <Layout>
+      <main className="register">
+        <div className="home__logoTitle-container">
+          <img className="home__logo" src={chewLogo}></img>
+          <h1 className="home__title">Chewbooka</h1>
+        </div>
 
-      <label>
-        Correo Electrónico:
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={onChange}
-          placeholder="hansolo@milleniumfalcon.com"
-          required
-        />
-      </label>
+        <div className="register__container">
+          <form className="registerForm__form" onSubmit={onSubmit}>
+            <label className="registerForm__label">
+              <CustomInput
+                className="registerForm__input"
+                type="text"
+                name="username"
+                value={username}
+                onChange={onChange}
+                placeholder="Han Solo"
+                prefix={<UserOutlined />}
+              />
+            </label>
 
-      <label>
-        Contraseña:
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={onChange}
-          placeholder="Hansolomola"
-          required
-        />
-      </label>
+            <label className="registerForm__label">
+              <CustomInput
+                className="registerForm__input"
+                type="email"
+                name="email"
+                value={email}
+                onChange={onChange}
+                placeholder="hansolo@milleniumfalcon.com"
+                prefix={<MailOutlined />}
+              />
+            </label>
 
-      <button type="submit">Registrate</button>
-    </form>
+            <label className="registerForm__label">
+              <InputPass
+                className="registerForm__input"
+                name="password"
+                value={password}
+                onChange={onChange}
+                placeholder="hansolomola123"
+              />
+            </label>
+
+            <label className="registerForm__label">
+              <InputPass
+                className="registerForm__input"
+                name="password2"
+                value={password2}
+                onChange={onChange}
+                placeholder="hansolomola123"
+              />
+            </label>
+
+            <CustomButton className="registerform__btn" htmlType="submit">
+              Registrarse
+            </CustomButton>
+          </form>
+        </div>
+      </main>
+    </Layout>
   );
 };

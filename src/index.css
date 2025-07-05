@@ -1,5 +1,11 @@
+@import './assets/fonts/fonts.css';
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* TIPOGRAFÍA */
+  --title: 'Orbitron';
+  --text: 'SpaceGrotesk';
+
+  font-family: var(--text);
   line-height: 1.5;
   font-weight: 400;
 
@@ -11,4 +17,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* COLORES */
+  --oscuro: #242424;
+  --azul: #2658a9;
+  --accent: #00a1e0;
+  --blanco: #ffffff;
+}
+
+body {
+  margin: 0;
 }
