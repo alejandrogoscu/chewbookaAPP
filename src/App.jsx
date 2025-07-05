@@ -4,6 +4,7 @@ import { Login } from './components/auth/LoginForm/LoginForm';
 
 import './App.css';
 import Home from './components/Home/Home';
+import HomeLogueado from './components/HomeLogueado/HomeLogueado';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path='/' element={<Home />} />
+          <Route path='/posts' element={<HomeLogueado />} />
         </Routes>
       </BrowserRouter>
     </>
