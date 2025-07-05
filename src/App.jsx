@@ -1,18 +1,19 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Profile from './components/users/Profile';
+import { Login } from './components/auth/LoginForm/LoginForm';
 import { Register } from './components/auth/RegisterForm/RegisterForm';
-import Home from './components/Home/Home';
-import './App.css';
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        {/* ...otras rutas */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 

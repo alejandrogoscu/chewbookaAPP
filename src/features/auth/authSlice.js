@@ -35,6 +35,14 @@ export const authSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
+        localStorage.setItem('user', JSON.stringify(action.payload.user));
+        localStorage.setItem('token', JSON.stringify(action.payload.token));
+      })
+      .addCase(login.rejected, (state, action) => {
+        state.user = null;
+        state.token = null;
+        state.isError = true;
+        state.message = action.payload;
       })
       .addCase(logout.fulfilled, (state) => {
         state.user = null;
@@ -52,11 +60,12 @@ export const register = createAsyncThunk('auth/register', async (user, thunkAPI)
   }
 });
 
-export const login = createAsyncThunk('auth/login', async (user) => {
+export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
   try {
     return await authService.login(user);
   } catch (error) {
-    console.log(error);
+    const message = error.response?.data?.message || "Error al iniciar sesión";
+    return thunkAPI.rejectWithValue(message);
   }
 });
 
