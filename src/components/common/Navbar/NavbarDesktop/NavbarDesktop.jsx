@@ -1,7 +1,7 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './navbarDesktop.css';
-import { EditFilled, IdcardFilled, RobotFilled, SecurityScanFilled, WechatFilled } from '@ant-design/icons';
+import { EditFilled, RobotFilled, SecurityScanFilled, WechatFilled } from '@ant-design/icons';
 
 const NavbarDesktop = () => {
   const navigate = useNavigate();
@@ -15,38 +15,42 @@ const NavbarDesktop = () => {
           <img className="navbar__user-img" src={user.image} />
           <span className="navbar__text">{user.username}</span>
         </li>
-        <Link className="navbar__link" to={'/dashboard'}>
-          <li className="navbar__item active">
+
+        <li className="navbar__item">
+          <NavLink to="/dashboard" className={({ isActive }) => `navbar__link ${isActive ? 'active' : ''}`}>
             <span className="navbar__icon">
               <WechatFilled style={{ fontSize: '32px', color: '#00a1e0' }} />
             </span>
             <span className="navbar__text">Dashboard</span>
-          </li>
-        </Link>
-        <Link className="navbar__link" to={'/buscador'}>
-          <li className="navbar__item">
+          </NavLink>
+        </li>
+
+        <li className="navbar__item">
+          <NavLink to="/buscador" className={({ isActive }) => `navbar__link ${isActive ? 'active' : ''}`}>
             <span className="navbar__icon">
               <SecurityScanFilled style={{ fontSize: '32px', color: '#00a1e0' }} />
             </span>
             <span className="navbar__text">Buscador</span>
-          </li>
-        </Link>
-        <Link className="navbar__link" to={'/profile'}>
-          <li className="navbar__item">
+          </NavLink>
+        </li>
+
+        <li className="navbar__item">
+          <NavLink to="/profile" className={({ isActive }) => `navbar__link ${isActive ? 'active' : ''}`}>
             <span className="navbar__icon">
               <RobotFilled style={{ fontSize: '30px', color: '#00a1e0' }} />
             </span>
             <span className="navbar__text">Profile</span>
-          </li>
-        </Link>
-        <Link className="navbar__link" to={'/addpost'}>
-          <li className="navbar__item">
+          </NavLink>
+        </li>
+
+        <li className="navbar__item">
+          <NavLink to="/addpost" className={({ isActive }) => `navbar__link ${isActive ? 'active' : ''}`}>
             <span className="navbar__icon">
               <EditFilled style={{ fontSize: '30px', color: '#00a1e0' }} />
             </span>
             <span className="navbar__text">Postear</span>
-          </li>
-        </Link>
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

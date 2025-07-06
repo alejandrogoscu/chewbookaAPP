@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import { Register } from './components/auth/RegisterForm/RegisterForm';
-import Navbar from './components/common/Navbar/Navbar';
+import AppLayout from './components/common/Layout/AppLayout';
 import Dashboard from './components/Home/Dashboard';
 import Profile from './components/users/Profile/Profile';
 import './App.css';
@@ -16,12 +16,19 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              <Navbar>
+              <AppLayout>
                 <Dashboard />
-              </Navbar>
+              </AppLayout>
             }
           />
-          <Route path="/profile" element={<Profile />} />
+          <Route
+            path="/profile"
+            element={
+              <AppLayout>
+                <Profile />
+              </AppLayout>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </>

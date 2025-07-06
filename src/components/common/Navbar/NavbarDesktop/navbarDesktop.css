@@ -1,11 +1,6 @@
 .navbar__desktop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 220px;
-  height: 100vh;
   background-color: transparent;
-  border-right: 3px solid var(--accent);
+
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -33,16 +28,18 @@
   padding-inline-start: 0;
 }
 
-.navbar__item {
+.navbar__link {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 5px;
   margin-bottom: 20px;
-}
-
-.navbar__link {
   text-decoration: none;
+  padding: 10px 5px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+  }
 }
 
 .navbar__text {
@@ -61,7 +58,7 @@
   color: var(--accent);
 }
 
-@media screen and (width < 850px) {
+@media screen and (width < 975px) {
   .navbar__desktop {
     align-items: end;
   }
@@ -70,7 +67,7 @@
     margin-right: 25px;
   }
 
-  .navbar__item {
+  .navbar__link {
     justify-content: center;
   }
 
