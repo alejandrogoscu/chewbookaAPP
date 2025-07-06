@@ -39,6 +39,10 @@ export const Login = () => {
         message: 'Logueado con éxito',
         description: message || 'Es momento de explorar la galaxia',
       });
+
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 2000);
     }
 
     if (isError) {

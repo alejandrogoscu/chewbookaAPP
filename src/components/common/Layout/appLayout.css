@@ -7,25 +7,32 @@
 
 .layout {
   display: grid;
+  grid-template-rows: auto 1fr;
   grid-template-columns: 250px minmax(0, 680px) 120px;
-  grid-template-areas: 'sidebar main-content extra';
+  grid-template-areas:
+    ' . header .'
+    'sidebar main-content extra';
   width: 100%;
   max-width: calc(250px + 680px + 120px);
   height: 100%;
 }
 
+.layout__header {
+  grid-area: header;
+}
+
 .sidebar {
   grid-area: sidebar;
   width: 250px;
-  height: 100dvh;
   background-color: transparent;
 }
 
 .main__content {
   grid-area: main-content;
-  padding: 1rem 0 4rem 0;
+  padding: 10px 25px;
   overflow-y: auto;
-  border-left: 3px solid var(--accent);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
   background-color: var(--oscuro);
 }
 
@@ -48,5 +55,31 @@
   .main__content {
     padding: 1rem 1rem 5rem 1rem;
     border: none;
+  }
+}
+
+/* SCROLL BAR */
+
+.main__content {
+  --sb-track-color: rgba(255, 255, 255, 0.2);
+  --sb-thumb-color: #ffffff;
+  --sb-size: 5px;
+}
+
+.main__content::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+.main__content::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+}
+
+.main__content::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .main__content {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
 }
