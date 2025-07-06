@@ -7,7 +7,7 @@ import './appLayout.css';
 
 const AppLayout = ({ children }) => {
   const width = useWindowWidth();
-  const isDesktop = width >= 825;
+  const isDesktop = width >= 800;
 
   return (
     <>

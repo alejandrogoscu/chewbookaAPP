@@ -19,6 +19,8 @@
 
 .layout__header {
   grid-area: header;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: none;
 }
 
 .sidebar {
@@ -41,10 +43,13 @@
   width: 120px;
 }
 
-@media screen and (max-width: 824px) {
+@media screen and (max-width: 799px) {
   .layout {
     grid-template-columns: 1fr;
-    grid-template-areas: 'main-content';
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'header'
+      'main-content';
   }
 
   .sidebar,
@@ -55,6 +60,11 @@
   .main__content {
     padding: 1rem 1rem 5rem 1rem;
     border: none;
+  }
+
+  .layout__header {
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 }
 
