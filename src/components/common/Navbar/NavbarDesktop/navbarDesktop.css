@@ -2,16 +2,24 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 250px;
+  width: 220px;
   height: 100vh;
   background-color: transparent;
   border-right: 3px solid var(--accent);
   display: flex;
   flex-direction: column;
   justify-content: start;
-  align-items: end;
+  align-items: center;
   padding: 30px 15px;
-  text-align: left;
+}
+
+.navbar__userItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 50px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--accent);
 }
 
 .navbar__user-img {
@@ -27,15 +35,10 @@
 
 .navbar__item {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 20px;
-  margin-bottom: 30px;
-}
-
-.icon {
-  fill: var(--accent);
-  width: 24px;
+  gap: 10px;
+  padding: 10px 5px;
+  margin-bottom: 20px;
 }
 
 .navbar__link {
@@ -43,13 +46,34 @@
 }
 
 .navbar__text {
-  text-align: end;
+  text-align: center;
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--blanco);
 }
 
-@media screen and (width < 800px) {
+.active {
+  background-color: var(--blanco);
+  border-radius: 10px;
+}
+
+.active > .navbar__text {
+  color: var(--accent);
+}
+
+@media screen and (width < 850px) {
+  .navbar__desktop {
+    align-items: end;
+  }
+
+  .navbar__list {
+    margin-right: 25px;
+  }
+
+  .navbar__item {
+    justify-content: center;
+  }
+
   .navbar__text {
     display: none;
   }

@@ -1,4 +1,5 @@
 import Layout from '../common/Layout/Layout';
+import Posts from '../posts/Posts/Posts';
 import './dashboard.css';
 
 const Dashboard = () => {
@@ -7,15 +8,7 @@ const Dashboard = () => {
       <Layout>
         <div className="dashboard">
           <div className="feed">
-            <div>Posts</div>
-            <div>Posts</div>
-            <div>Posts</div>
-            <div>Posts</div>
-            <div>Posts</div>
-            <div>Posts</div>
-            <div>Posts</div>
-            <div>Posts</div>
-            <div>Posts</div>
+            <Posts />
           </div>
         </div>
       </Layout>
