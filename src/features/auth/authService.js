@@ -31,10 +31,23 @@ const logout = async () => {
   return res.data;
 };
 
+const getUserConnected = async  (token) => {
+    const config =  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    };
+    const res = await axios.get(`${API_URL}/me`, config);
+    return res.data
+};
+
+
+
 const authService = {
   register,
   login,
   logout,
+  getUserConnected,
 };
 
 export default authService;
