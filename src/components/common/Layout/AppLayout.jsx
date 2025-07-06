@@ -28,10 +28,10 @@ const AppLayout = ({ children }) => {
 
             {isDesktop && <aside className="extra">{}</aside>}
           </div>
+
+          {!isDesktop && <NavbarMobile />}
         </div>
       </Background>
-
-      {!isDesktop && <NavbarMobile />}
     </>
   );
 };
