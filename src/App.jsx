@@ -21,8 +21,8 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path='posts/:_id' element={<PostDetail />} />
-          <Route path='/search' element={<SearchPost />} />
-          <Route path='/search/title/:title' element={<SearchPost />} />
+          <Route path='/search' element={<ResultSearch />} />
+          <Route path='/search/title/:title' element={<ResultSearch />} />
           <Route
             path="/dashboard"
             element={

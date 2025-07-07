@@ -9,11 +9,13 @@ const ResultSearch = () => {
   const [text, setText] = useState('');
   const navigate = useNavigate();
   const filteredPosts = useSelector((state) => state.posts.filteredPosts);
-
+  
   const handleSearch = (e) => {
-    setText(e.target.value);
-    if (e.key === 'Enter') {
-      navigate(`title/${text}`);
+    const value = e.target.value.trim();
+    setText(value);
+
+    if (e.key === 'Enter' && value) {
+      navigate(`/search/title/${value}`);
     }
   };
 
@@ -26,6 +28,7 @@ const ResultSearch = () => {
 
   return (
     <div>
+      <h1>Search Post</h1>
       <input onKeyUp={handleSearch} placeholder="Busca aquí" name="text" />
 
       {filteredPosts && filteredPosts.length > 0 ? (

@@ -20,7 +20,6 @@ export const postSlice = createSlice({
     });
     builder.addCase(searchByTitle.fulfilled, (state, action) => {
       state.filteredPosts = Array.isArray(action.payload) ? action.payload : [action.payload];
-      console.log(state.posts);
     });
   },
 });
