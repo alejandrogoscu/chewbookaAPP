@@ -18,11 +18,17 @@ const getById = async (_id) => {
     
 };
 
+const searchByTitle = async (postTitle) => {
+  const res = await axios.get(API_URL + 'title/' + postTitle)
+  return res.data;
+};
+
 
 
 const postService = {
   getAll,
   getById,
+  searchByTitle,
 };
 
 export default postService;

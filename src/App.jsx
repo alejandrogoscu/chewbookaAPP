@@ -7,6 +7,8 @@ import Profile from './components/users/Profile/Profile';
 import './App.css';
 import { Login } from './components/auth/LoginForm/LoginForm';
 import PostDetail from './components/posts/PostDetail/PostDetail';
+import SearchPost from './components/posts/SearchPost/SearchPost';
+import ResultSearch from './components/posts/ResultSearch/ResultSearch';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path='posts/:_id' element={<PostDetail />} />
+          <Route path='/search' element={<SearchPost />} />
+          <Route path='/search/title/:title' element={<SearchPost />} />
           <Route
             path="/dashboard"
             element={
