@@ -1,16 +1,14 @@
-import ResultSearch from '../ResultSearch/ResultSearch'
-import Post from '../Post/Post'
-import Posts from '../Posts/Posts'
+import ResultSearch from '../ResultSearch/ResultSearch';
+import Post from '../Post/Post';
+import Posts from '../Posts/Posts';
 
 const SearchPost = () => {
-   
   return (
     <div>
-        <h1>Search Post</h1>
-        <ResultSearch />
-        <Post />
+      <h1>Search Post</h1>
+      <ResultSearch />
     </div>
-  )
-}
+  );
+};
 
-export default SearchPost
+export default SearchPost;
