@@ -12,6 +12,8 @@ const login = async (userData) => {
   if (res.data) {
     localStorage.setItem('user', JSON.stringify(res.data.user));
     localStorage.setItem('token', JSON.stringify(res.data.token));
+    localStorage.setItem('posts', JSON.stringify(res.data.posts));
+    localStorage.setItem('comments', JSON.stringify(res.data.comments));
   }
   return res.data;
 };
@@ -29,10 +31,23 @@ const logout = async () => {
   return res.data;
 };
 
+const getUserConnected = async  (token) => {
+    const config =  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    };
+    const res = await axios.get(`${API_URL}/me`, config);
+    return res.data
+};
+
+
+
 const authService = {
   register,
   login,
   logout,
+  getUserConnected,
 };
 
 export default authService;
