@@ -1,13 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
-import HomeLogueado from './components/HomeLogueado/HomeLogueado';
 import { Register } from './components/auth/RegisterForm/RegisterForm';
 import AppLayout from './components/common/Layout/AppLayout';
 import Dashboard from './components/Home/Dashboard';
 import Profile from './components/users/Profile/Profile';
 import './App.css';
 import { Login } from './components/auth/LoginForm/LoginForm';
-import PostCard from './components/posts/PostCard/PostCard';
+import PostDetail from './components/posts/PostDetail/PostDetail';
 
 function App() {
   return (
@@ -18,9 +17,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path='/' element={<Home />} />
-          <Route path='/posts' element={<HomeLogueado />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path='posts/:_id' element={<PostCard />} />
+          <Route path='posts/:_id' element={<PostDetail />} />
           <Route
             path="/dashboard"
             element={
