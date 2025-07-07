@@ -12,10 +12,11 @@ export const postSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getAll.fulfilled, (state, action) => {
-      /* console.log('Payload que llega:', action.payload);
-      state.posts = Array.isArray(action.payload) ? action.payload : Object.values(action.payload) || []; */
       state.posts = action.payload;
     });
+    builder.addCase(getById.fulfilled, (state, action) => {
+        state.post = action.payload;
+    })
   },
 });
 
@@ -26,5 +27,13 @@ export const getAll = createAsyncThunk('posts/getAll', async () => {
     console.error('Erros al sacar los posts', error);
   }
 });
+
+export const getById = createAsyncThunk('posts/getById', async (_id) => {
+    try {
+        return await postService.getById(_id)
+    } catch (error) {
+        console.error('No se ha encontrado post', error)
+    }
+})
 
 export default postSlice.reducer;

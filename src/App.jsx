@@ -4,6 +4,8 @@ import HomeLogueado from './components/HomeLogueado/HomeLogueado';
 import { Register } from './components/auth/RegisterForm/RegisterForm';
 import Profile from './components/users/Profile/Profile';
 import './App.css';
+import { Login } from './components/auth/LoginForm/LoginForm';
+import PostCard from './components/posts/PostCard/PostCard';
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/posts' element={<HomeLogueado />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path='posts/:_id' element={<PostCard />} />
         </Routes>
       </BrowserRouter>
     </>
