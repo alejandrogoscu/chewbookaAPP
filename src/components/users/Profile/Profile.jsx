@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import PostCard from '../../posts/PostCard/PostCard';
+import ProfileTabs from './ProfileTabs/ProfileTabs';
 import { useState } from 'react';
-import Post from '../../posts/Post/Post';
+import './profile.css';
 
 const Profile = () => {
   const [listType, setListType] = useState(null);
@@ -14,76 +14,26 @@ const Profile = () => {
   if (!user) return <div>No hay usuario logueado.</div>;
 
   return (
-    <div>
-      <h1>Perfil</h1>
-      {user.image && <img src={user.image} alt="avatar" />}
-      <p>
-        <strong>Username:</strong> {user.username}
-      </p>
-      <p>
-        <strong>Email:</strong> {user.email}
-      </p>
+    <>
+      <div className="profile__container">
+        <section className="profile__infoCard">
+          <div className="profile__userInfo-wrapper">
+            {user.image && <img className="profile__userImg" src={user.image} alt="avatar" />}
 
-      <button
-        onClick={() => {
-          setListType('followers');
-          setModalVisible(true);
-        }}
-      >
-        Seguidores ({user.followers?.length ?? 0})
-      </button>
-
-      <button
-        onClick={() => {
-          setListType('following');
-          setModalVisible(true);
-        }}
-      >
-        Siguiendo ({user.following?.length ?? 0})
-      </button>
-
-      <h2>Mis Posts</h2>
-
-      {userPosts.map((post) => (
-        <PostCard
-          key={post._id}
-          title={post.title}
-          content={post.content}
-          image={post.images?.[0]}
-          avatar={post.author?.image}
-        />
-      ))}
-
-      {modalVisible && (
-        <div>
-          <div>
-            <button onClick={() => setModalVisible(false)}>Cerrar</button>
-
-            {listType === 'followers' && (
-              <div>
-                <h3>Seguidores</h3>
-                <ul>
-                  {user.followers.map((f) => (
-                    <li key={f._id}>{f.username}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {listType === 'following' && (
-              <div>
-                <h3>Siguiendo</h3>
-                <ul>
-                  {user.following.map((f) => (
-                    <li key={f._id}>{f.username}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <div className="profile__userText">
+              <h2 className="profile__username">{user.username}</h2>
+              <span className="profile__email">{user.email}</span>
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+
+          <div className="profille__userBio-wrapper">
+            <p>{user.bio}</p>
+          </div>
+        </section>
+
+        <ProfileTabs user={user} userPosts={userPosts} />
+      </div>
+    </>
   );
 };
 

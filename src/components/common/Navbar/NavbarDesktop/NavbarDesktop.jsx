@@ -26,7 +26,7 @@ const NavbarDesktop = () => {
         </li>
 
         <li className="navbar__item">
-          <NavLink to="/buscador" className={({ isActive }) => `navbar__link ${isActive ? 'active' : ''}`}>
+          <NavLink to="/search" className={({ isActive }) => `navbar__link ${isActive ? 'active' : ''}`}>
             <span className="navbar__icon">
               <SecurityScanFilled style={{ fontSize: '32px', color: '#00a1e0' }} />
             </span>
