@@ -1,6 +1,6 @@
 import { Login } from '../auth/LoginForm/LoginForm';
 import { Button } from 'antd';
-import Layout from '../common/Layout/Layout';
+import Background from '../common/Layout/Background';
 import chewLogo from '../../assets/chewLogo.png';
 import { Link } from 'react-router-dom';
 import './Home.css';
@@ -8,7 +8,7 @@ import './Home.css';
 const Home = () => {
   return (
     <>
-      <Layout>
+      <Background>
         <main className="home">
           <div className="home__info">
             <div className="home__logoTitle-container">
@@ -29,7 +29,7 @@ const Home = () => {
             </div>
           </div>
         </main>
-      </Layout>
+      </Background>
     </>
   );
 };

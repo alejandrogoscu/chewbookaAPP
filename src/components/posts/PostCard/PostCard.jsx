@@ -1,30 +1,30 @@
-import React from 'react';
-import Comment from '../Comment/Comment';
+import './postCard.css';
+import { LikeFilled, MessageFilled } from '@ant-design/icons';
+import { Avatar, Card } from 'antd';
 
-const PostCard = ({ post, comments }) => {
-  if (!post) return null;
+const { Meta } = Card;
+
+const PostCard = ({ title, content, image, avatar }) => {
+  const showImage = image && image !== '';
   return (
-    <div>
-      <h3>{post.title}</h3>
-      <p>{post.content}</p>
-      {post.images && post.images.length > 0 && (
-        <div>
-          {post.images.map((img, idx) => (
-            <img key={idx} src={img} alt="post"  />
-          ))}
-        </div>
+    <Card
+      className="postCard__container"
+      actions={[
+        <MessageFilled className="postCard__icon" style={{ fontSize: '24px', color: '#fff' }} key="comment" />,
+        <LikeFilled className="postCard__icon" style={{ fontSize: '24px' }} key="liked" />,
+      ]}
+    >
+      <Meta
+        className="postCard__meta"
+        avatar={<Avatar src={avatar || 'https://api.dicebear.com/7.x/miniavs/svg?seed=8'} />}
+        title={<span className="postCard__title">{title}</span>}
+        description={<span className="postCard__content">{content}</span>}
+      />
+
+      {showImage && (
+        <img alt={title} src={image} style={{ width: '100%', marginTop: '1rem', borderRadius: '0.5rem' }} />
       )}
-      <div>
-        <strong>Comentarios:</strong>
-        {post.comments && post.comments.length > 0 ? (
-          post.comments.map((comment, idx) => (
-            <Comment key={comment._id || idx} comment={comment} />
-          ))
-        ) : (
-          <div>No hay comentarios.</div>
-        )}
-      </div>
-    </div>
+    </Card>
   );
 };
 

@@ -1,23 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../../features/auth/authSlice';
+import { login, reset } from '../../../features/auth/authSlice';
 import { InputPass } from '../../common/Inputs/InputPass';
 import { CustomInput } from '../../common/Inputs/Input';
 import { MailOutlined } from '@ant-design/icons';
 import { CustomButton } from '../../common/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import { notification } from 'antd';
 import './loginform.css';
 
 export const Login = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
 
   const { email, password } = formData;
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { isError, message } = useSelector((state) => state.auth);
+  const { isSuccess, message, isError } = useSelector((state) => state.auth);
 
   const onChange = (e) => {
     setFormData({
@@ -26,14 +28,31 @@ export const Login = () => {
     });
   };
 
-  const onSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    const resultAction = await dispatch(login(formData));
-    if (login.fulfilled.match(resultAction)) {
-      navigate('/profile');
-    }
-    // Si hay error, se mostrará abajo
+    dispatch(login(formData));
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      notification.success({
+        message: 'Logueado con éxito',
+        description: message || 'Es momento de explorar la galaxia',
+      });
+
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 2000);
+    }
+
+    if (isError) {
+      notification.error({
+        message: 'Error al logearte',
+        description: message || 'Email o contraseña incorrectos',
+      });
+    }
+    dispatch(reset());
+  }, [isSuccess, isError, message]);
 
   return (
     <>

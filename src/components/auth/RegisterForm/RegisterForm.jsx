@@ -8,7 +8,7 @@ import { MailOutlined, UserOutlined } from '@ant-design/icons';
 import { InputPass } from '../../common/Inputs/InputPass';
 import { CustomButton } from '../../common/Button/Button';
 import chewLogo from '../../../assets/chewLogo.png';
-import Layout from '../../common/Layout/Layout';
+import Background from '../../common/Layout/Background';
 import './registerForm.css';
 
 export const Register = () => {
@@ -67,7 +67,7 @@ export const Register = () => {
   }, [isSuccess, isError, message]);
 
   return (
-    <Layout>
+    <Background>
       <main className="register">
         <div className="home__logoTitle-container">
           <img className="home__logo" src={chewLogo}></img>
@@ -126,6 +126,6 @@ export const Register = () => {
           </form>
         </div>
       </main>
-    </Layout>
+    </Background>
   );
 };

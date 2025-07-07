@@ -14,17 +14,29 @@ const Profile = () => {
   return (
     <div>
       <h1>Perfil</h1>
-      {user.image && (
-        <img src={user.image} alt="avatar" />
-      )}
-      <p><strong>Username:</strong> {user.username}</p>
-      <p><strong>Email:</strong> {user.email}</p>
+      {user.image && <img src={user.image} alt="avatar" />}
+      <p>
+        <strong>Username:</strong> {user.username}
+      </p>
+      <p>
+        <strong>Email:</strong> {user.email}
+      </p>
 
-      <button onClick={() => { setListType('followers'); setModalVisible(true); }}>
+      <button
+        onClick={() => {
+          setListType('followers');
+          setModalVisible(true);
+        }}
+      >
         Seguidores ({user.followers?.length ?? 0})
       </button>
 
-      <button onClick={() => { setListType('following'); setModalVisible(true); }}>
+      <button
+        onClick={() => {
+          setListType('following');
+          setModalVisible(true);
+        }}
+      >
         Siguiendo ({user.following?.length ?? 0})
       </button>
 
@@ -44,7 +56,7 @@ const Profile = () => {
               <div>
                 <h3>Seguidores</h3>
                 <ul>
-                  {user.followers.map(f => (
+                  {user.followers.map((f) => (
                     <li key={f._id}>{f.username}</li>
                   ))}
                 </ul>
@@ -55,7 +67,7 @@ const Profile = () => {
               <div>
                 <h3>Siguiendo</h3>
                 <ul>
-                  {user.following.map(f => (
+                  {user.following.map((f) => (
                     <li key={f._id}>{f.username}</li>
                   ))}
                 </ul>
