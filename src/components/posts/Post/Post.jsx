@@ -13,7 +13,8 @@ const Post = () => {
     <div>
       {posts.map((post) => (
         <PostCard
-          key={post.id}
+          key={post._id}
+          avatar={post.author.image}
           title={post.title}
           content={post.content}
           image={Array.isArray(post.images) && post.images.length > 0 ? post.images[0] : null}

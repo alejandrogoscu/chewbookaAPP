@@ -48,7 +48,7 @@ const NavbarDesktop = () => {
             <span className="navbar__icon">
               <EditFilled style={{ fontSize: '30px', color: '#00a1e0' }} />
             </span>
-            <span className="navbar__text">Postear</span>
+            <span className="navbar__text">Publicar</span>
           </NavLink>
         </li>
       </ul>

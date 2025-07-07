@@ -1,0 +1,33 @@
+.postCard__container {
+  width: 100%;
+  margin: 1rem auto;
+  background-color: var(--oscuro);
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.postCard__title {
+  color: var(--blanco);
+}
+
+.postCard__content {
+  color: var(--blanco);
+}
+
+.postCard__icon {
+  color: var(--accent) !important;
+
+  &:hover {
+    color: var(--blanco) !important;
+  }
+}
+
+.ant-card .ant-card-actions {
+  background-color: var(--oscuro);
+  border: none;
+}
+
+.ant-card .ant-card-actions > li:not(:last-child) {
+  border-inline-end: 1px solid rgba(255, 255, 255, 0.2);
+}
