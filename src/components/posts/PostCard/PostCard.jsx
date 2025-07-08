@@ -8,8 +8,8 @@ import './postCard.css';
 
 const { Meta } = Card;
 
-const PostCard = ({ _id, title, content, images, avatar, author, comments: postComments }) => {
-  const showImage = images && images.length > 0 && images[0] !== '';
+const PostCard = ({ _id, title, content, image, avatar, author, comments: postComments }) => {
+  const showImage = image;
   const dispatch = useDispatch();
   const [showComments, setShowComments] = useState(false);
 
@@ -53,7 +53,7 @@ const PostCard = ({ _id, title, content, images, avatar, author, comments: postC
           description={<span className="postCard__content">{content}</span>}
         />
         {showImage && (
-          <img alt={title} src={images[0]} style={{ width: '100%', marginTop: '1rem', borderRadius: '0.5rem' }} />
+          <img alt={title} src={image} style={{ width: '100%', marginTop: '1rem', borderRadius: '0.5rem' }} />
         )}
       </Card>
       {/* Los comentarios van aquí, debajo de los iconos */}
