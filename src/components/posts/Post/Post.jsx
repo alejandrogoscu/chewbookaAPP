@@ -2,8 +2,9 @@ import { useSelector } from 'react-redux';
 import PostCard from '../PostCard/PostCard';
 
 const Post = () => {
+  // Permite que funcione tanto si es un array como si es un objeto con clave 'posts'
   const dataPosts = useSelector((state) => state.posts.posts);
-  const posts = dataPosts?.posts;
+  const posts = Array.isArray(dataPosts) ? dataPosts : dataPosts?.posts;
 
   if (!Array.isArray(posts)) {
     return <p>Cargando posts...</p>;
