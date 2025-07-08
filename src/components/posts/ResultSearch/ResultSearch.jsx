@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { searchByTitle } from '../../../features/posts/postsSlice';
-
 import PostCard from '../PostCard/PostCard';
+import { Input } from 'antd';
+import { useEffect } from 'react';
+const { Search } = Input;
+import './resultSearch.css';
 
 const ResultSearch = () => {
-  const [text, setText] = useState('');
   const navigate = useNavigate();
   const filteredPosts = useSelector((state) => state.posts.filteredPosts);
-  
-  const handleSearch = (e) => {
-    const value = e.target.value.trim();
-    setText(value);
 
-    if (e.key === 'Enter' && value) {
-      navigate(`/search/title/${value}`);
+  const handleSearch = (value) => {
+    const trimmed = value.trim();
+    if (trimmed) {
+      navigate(`/search/title/${trimmed}`);
     }
   };
 
@@ -28,9 +27,9 @@ const ResultSearch = () => {
 
   return (
     <div>
-      <h1>Search Post</h1>
-      <input onKeyUp={handleSearch} placeholder="Busca aquí" name="text" />
-
+      <div className="search__input-container">
+        <Search className="search__input" placeholder="input search text" onSearch={handleSearch} enterButton />
+      </div>
       {filteredPosts && filteredPosts.length > 0 ? (
         filteredPosts.map((post) => (
           <PostCard
@@ -42,7 +41,7 @@ const ResultSearch = () => {
           />
         ))
       ) : (
-        <p>No se encontraron posts con ese título.</p>
+        <p className="search__text">No se encontraron posts con ese título.</p>
       )}
     </div>
   );

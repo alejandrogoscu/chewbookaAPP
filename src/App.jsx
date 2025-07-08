@@ -18,7 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="posts/:_id" element={<PostDetail />} />
+
           <Route
             path="/newpost"
             element={
@@ -27,6 +27,7 @@ function App() {
               </AppLayout>
             }
           />
+          <Route path="posts/:_id" element={<PostDetail />} />
           <Route
             path="/search"
             element={
@@ -35,7 +36,14 @@ function App() {
               </AppLayout>
             }
           />
-
+          <Route
+            path="/search/title/:title"
+            element={
+              <AppLayout>
+                <ResultSearch />
+              </AppLayout>
+            }
+          />
           <Route
             path="/dashboard"
             element={
