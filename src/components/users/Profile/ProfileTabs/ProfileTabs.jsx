@@ -1,5 +1,6 @@
 import { Tabs } from 'antd';
 import PostCard from '../../../posts/PostCard/PostCard';
+import './profileTabs.css';
 
 const ProfileTabs = ({ user, userPosts }) => {
   const tabsItems = [
@@ -57,7 +58,7 @@ const ProfileTabs = ({ user, userPosts }) => {
     },
   ];
 
-  return <Tabs defaultActiveKey="1" items={tabsItems} />;
+  return <Tabs className="profile__tabs" centered size="large" defaultActiveKey="1" items={tabsItems} />;
 };
 
 export default ProfileTabs;
