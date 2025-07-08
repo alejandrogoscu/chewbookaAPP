@@ -13,10 +13,12 @@ const PostCard = ({ _id, title, content, images, avatar, author, comments: postC
   const dispatch = useDispatch();
   const [showComments, setShowComments] = useState(false);
 
-  // Si el post ya trae los comentarios, usa su longitud; si no, usa los del slice
-  const comments = useSelector(state =>
-    state.comments.items.filter(c => c.post === _id)
-  );
+  const commentsItems = useSelector((state) => state.comments.items);
+
+  const comments = React.useMemo(() => {
+    return commentsItems.filter((c) => c.post === _id);
+  }, [commentsItems, _id]);
+
   const commentCount = Array.isArray(postComments) ? postComments.length : comments.length;
 
   const handleShowComments = () => {
@@ -31,7 +33,11 @@ const PostCard = ({ _id, title, content, images, avatar, author, comments: postC
       <Card
         className="postCard__container"
         actions={[
-          <span key="comment" onClick={handleShowComments} style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', cursor: 'pointer' }}>
+          <span
+            key="comment"
+            onClick={handleShowComments}
+            style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', cursor: 'pointer' }}
+          >
             <MessageFilled className="postCard__icon" style={{ fontSize: '24px', color: '#00a1e0' }} />
             {commentCount > 0 && (
               <span style={{ marginLeft: '6px', fontWeight: 'bold', color: '#00a1e0' }}>{commentCount}</span>

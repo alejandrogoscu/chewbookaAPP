@@ -12,7 +12,7 @@ const NewPost = () => {
   const [data, setData] = useState({
     title: '',
     content: '',
-    image: null,
+    images: null,
   });
 
   const handleChange = (e) => {
@@ -21,7 +21,7 @@ const NewPost = () => {
   };
 
   const handleImageChange = ({ file }) => {
-    setData((prev) => ({ ...prev, image: file.originFileObj || file }));
+    setData((prev) => ({ ...prev, images: file.originFileObj || file }));
   };
 
   const handleSubmit = async (e) => {
@@ -29,7 +29,7 @@ const NewPost = () => {
     const formData = new FormData();
     formData.append('title', data.title);
     formData.append('content', data.content);
-    formData.append('image', data.image);
+    formData.append('image', data.images);
 
     try {
       await dispatch(createPost(formData));
