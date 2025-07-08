@@ -44,7 +44,7 @@ const NavbarDesktop = () => {
         </li>
 
         <li className="navbar__item">
-          <NavLink to="/addpost" className={({ isActive }) => `navbar__link ${isActive ? 'active' : ''}`}>
+          <NavLink to="/newpost" className={({ isActive }) => `navbar__link ${isActive ? 'active' : ''}`}>
             <span className="navbar__icon">
               <EditFilled style={{ fontSize: '30px', color: '#00a1e0' }} />
             </span>

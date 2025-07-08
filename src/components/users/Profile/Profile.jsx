@@ -9,7 +9,6 @@ const Profile = () => {
 
   const user = useSelector((state) => state.auth.user);
   const userPosts = useSelector((state) => state.auth.posts);
-  console.log(userPosts);
 
   if (!user) return <div>No hay usuario logueado.</div>;
 

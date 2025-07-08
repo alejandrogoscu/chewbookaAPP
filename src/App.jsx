@@ -18,11 +18,24 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/addposts" element={<NewPost />} />
           <Route path="posts/:_id" element={<PostDetail />} />
-          <Route path="/search" element={<ResultSearch />} />
-          <Route path="/search/title/:title" element={<ResultSearch />} />
+          <Route
+            path="/newpost"
+            element={
+              <AppLayout>
+                <NewPost />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/search"
+            element={
+              <AppLayout>
+                <ResultSearch />
+              </AppLayout>
+            }
+          />
+
           <Route
             path="/dashboard"
             element={
