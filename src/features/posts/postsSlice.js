@@ -12,15 +12,19 @@ export const postSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getAll.fulfilled, (state, action) => {
-      state.posts = action.payload;
-    });
-    builder.addCase(getById.fulfilled, (state, action) => {
-      state.post = action.payload;
-    });
-    builder.addCase(searchByTitle.fulfilled, (state, action) => {
-      state.filteredPosts = Array.isArray(action.payload) ? action.payload : [action.payload];
-    });
+    builder
+      .addCase(getAll.fulfilled, (state, action) => {
+        state.posts = action.payload;
+      })
+      .addCase(getById.fulfilled, (state, action) => {
+        state.post = action.payload;
+      })
+      .addCase(searchByTitle.fulfilled, (state, action) => {
+        state.filteredPosts = Array.isArray(action.payload) ? action.payload : [action.payload];
+      })
+      .addCase(createPost.fulfilled, (state, action) => {
+        state.posts.push(action.payload);
+      });
   },
 });
 
@@ -28,7 +32,7 @@ export const getAll = createAsyncThunk('posts/getAll', async () => {
   try {
     return await postService.getAll();
   } catch (error) {
-    console.error('Erros al sacar los posts', error);
+    console.error('Error al sacar los posts', error);
   }
 });
 
@@ -45,6 +49,14 @@ export const searchByTitle = createAsyncThunk('posts/searchByTitle', async (post
     return await postService.searchByTitle(postName);
   } catch (error) {
     console.error(error);
+  }
+});
+
+export const createPost = createAsyncThunk('posts/createPost', async (formData) => {
+  try {
+    return await postService.createPost(formData);
+  } catch (error) {
+    console.log(error);
   }
 });
 

@@ -9,6 +9,7 @@ import './App.css';
 import { Login } from './components/auth/LoginForm/LoginForm';
 import PostDetail from './components/posts/PostDetail/PostDetail';
 import ResultSearch from './components/posts/ResultSearch/ResultSearch';
+import NewPost from './components/posts/AddPostForm/AddPost';
 
 function App() {
   return (
@@ -18,11 +19,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path='/' element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path='posts/:_id' element={<PostDetail />} />
-          <Route path='/search' element={<ResultSearch />} />
-          <Route path='/search/title/:title' element={<ResultSearch />} />
+          <Route path="/addposts" element={<NewPost />} />
+          <Route path="posts/:_id" element={<PostDetail />} />
+          <Route path="/search" element={<ResultSearch />} />
+          <Route path="/search/title/:title" element={<ResultSearch />} />
           <Route
             path="/dashboard"
             element={
