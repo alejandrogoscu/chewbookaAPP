@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Home from './components/Home/Home';
 import { Register } from './components/auth/RegisterForm/RegisterForm';
@@ -20,7 +19,6 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
           <Route path="/addposts" element={<NewPost />} />
           <Route path="posts/:_id" element={<PostDetail />} />
           <Route path="/search" element={<ResultSearch />} />
