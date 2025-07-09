@@ -59,7 +59,7 @@ const PostCard = ({ _id, title, content, image, avatar, author, comments: postCo
       {/* Los comentarios van aquí, debajo de los iconos */}
       {showComments && (
         <div>
-          <Comments comments={comments} />
+          <Comments postId={_id} />
         </div>
       )}
     </>
