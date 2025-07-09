@@ -7,7 +7,6 @@ import { MailOutlined } from '@ant-design/icons';
 import { CustomButton } from '../../common/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { notification } from 'antd';
-import './loginform.css';
 
 export const Login = () => {
   const navigate = useNavigate();
