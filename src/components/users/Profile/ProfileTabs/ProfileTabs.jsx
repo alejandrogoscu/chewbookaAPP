@@ -16,7 +16,7 @@ const ProfileTabs = ({ user, userPosts }) => {
               title={post.title}
               content={post.content}
               image={post.images?.[0]}
-              avatar={post.author?.image}
+              avatar={user.image}
             />
           ))}
         </>

@@ -1,9 +1,10 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ProfileTabs from './ProfileTabs/ProfileTabs';
 import { useState } from 'react';
 import './profile.css';
 
 const Profile = () => {
+  const dispatch = useDispatch();
   const [listType, setListType] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
 

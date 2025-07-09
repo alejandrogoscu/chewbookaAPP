@@ -64,6 +64,8 @@ export const authSlice = createSlice({
         state.isSuccess = true;
         state.user = action.payload.user;
         state.posts = action.payload.posts;
+        localStorage.setItem('user', JSON.stringify(action.payload.user));
+        localStorage.setItem('posts', JSON.stringify(action.payload.posts));
       })
       .addCase(getUserConnected.pending, (state) => {
         state.isSuccess = false;
