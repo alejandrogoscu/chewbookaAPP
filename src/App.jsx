@@ -9,6 +9,7 @@ import { Login } from './components/auth/LoginForm/LoginForm';
 import PostDetail from './components/posts/PostDetail/PostDetail';
 import ResultSearch from './components/posts/ResultSearch/ResultSearch';
 import NewPost from './components/posts/AddPostForm/AddPost';
+import PrivateZone from './guards/PrivateZone';
 
 function App() {
   return (
@@ -22,42 +23,52 @@ function App() {
           <Route
             path="/newpost"
             element={
+              <PrivateZone>
               <AppLayout>
                 <NewPost />
               </AppLayout>
+              </PrivateZone>
             }
           />
           <Route path="posts/:_id" element={<PostDetail />} />
           <Route
             path="/search"
             element={
+              <PrivateZone>
               <AppLayout>
                 <ResultSearch />
               </AppLayout>
+              </PrivateZone>
             }
           />
           <Route
             path="/search/title/:title"
             element={
+              <PrivateZone>
               <AppLayout>
                 <ResultSearch />
               </AppLayout>
+              </PrivateZone>
             }
           />
           <Route
             path="/dashboard"
             element={
+              <PrivateZone>
               <AppLayout>
                 <Dashboard />
               </AppLayout>
+              </PrivateZone>
             }
           />
           <Route
             path="/profile"
             element={
+              <PrivateZone>
               <AppLayout>
                 <Profile />
               </AppLayout>
+              </PrivateZone>
             }
           />
         </Routes>
