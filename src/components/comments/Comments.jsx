@@ -17,7 +17,7 @@ const Comments = ({ postId }) => {
     if (!text.trim()) return;
     await dispatch(addCommentToPost({ postId, comment: text }));
     setText('');
-    dispatch(fetchCommentsByPost(postId)); // Refresca la lista tras crear el comentario
+    dispatch(fetchCommentsByPost(postId));
   };
 
   return (
