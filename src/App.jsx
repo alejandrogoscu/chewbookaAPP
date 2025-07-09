@@ -27,7 +27,14 @@ function App() {
               </AppLayout>
             }
           />
-          <Route path="posts/:_id" element={<PostDetail />} />
+          <Route
+            path="/posts/:_id"
+            element={
+              <AppLayout>
+                <PostDetail />
+              </AppLayout>
+            }
+          />
           <Route
             path="/search"
             element={
