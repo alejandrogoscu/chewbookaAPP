@@ -1,0 +1,17 @@
+.LogoutButton {
+  width: 140px;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid #bbb;
+  background: transparent;
+  color: #fff;
+
+  &:hover {
+    background-color: rgba(255, 0, 0, 0.178);
+    color: red;
+    border: 1px solid red;
+    transition: 0.3s ease all;
+    opacity: 1;
+  }
+}
