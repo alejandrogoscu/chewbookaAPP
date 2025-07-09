@@ -7,4 +7,14 @@ const getCommentsByPost = async (postId) => {
   return res.data;
 };
 
-export default { getCommentsByPost };
+const addCommentToPost = async ({ postId, comment }) => {
+  const token = localStorage.getItem('token');
+  const res = await axios.post(
+    `${API_URL}/post/${postId}`,
+    { comment },
+    { headers: { Authorization: token } } // Solo el token, sin 'Bearer '
+  );
+  return res.data;
+};
+
+export default { getCommentsByPost, addCommentToPost };

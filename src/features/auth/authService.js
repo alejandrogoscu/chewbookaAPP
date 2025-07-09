@@ -11,7 +11,11 @@ const login = async (userData) => {
   const res = await axios.post(API_URL + '/login', userData);
   if (res.data) {
     localStorage.setItem('user', JSON.stringify(res.data.user));
-    localStorage.setItem('token', JSON.stringify(res.data.token));
+    // Guarda el último token del array de tokens del usuario
+    const tokens = res.data.user.tokens;
+    if (Array.isArray(tokens) && tokens.length > 0) {
+      localStorage.setItem('token', tokens[tokens.length - 1]);
+    }
     localStorage.setItem('posts', JSON.stringify(res.data.posts));
     localStorage.setItem('comments', JSON.stringify(res.data.comments));
   }
@@ -19,7 +23,7 @@ const login = async (userData) => {
 };
 
 const logout = async () => {
-  const token = JSON.parse(localStorage.getItem('token'));
+  const token = localStorage.getItem('token');
   const res = await axios.delete(API_URL + '/logout', {
     headers: { Authorization: `Bearer ${token}` }, // O token segun backend.
   });
