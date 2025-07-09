@@ -1,25 +1,24 @@
 /* profileTabs.css */
-.profile-tabs .ant-tabs-tab {
-  color: #ffffff !important;
+.profile__tabs .ant-tabs-tab {
+  color: var(--blanco);
+  font-family: var(--text);
   transition: color 0.3s ease;
 }
 
-.profile-tabs .ant-tabs-tab:hover {
+.profile__tabs .ant-tabs-tab:hover {
   color: #00a1e0;
-}
-
-.profile-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
-  color: #00a1e0;
-  font-weight: bold;
 }
 
 .profile-tabs .ant-tabs-ink-bar {
-  background-color: #00a1e0;
+  background-color: #00a1e0 !important;
+  width: 100% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  transition: left 0.3s, width 0.3s, transform 0.3s;
 }
 
-/* Opcional: fondo de la barra de tabs */
-.profile-tabs .ant-tabs-nav {
-  background-color: #000000;
-  border-radius: 8px;
-  padding: 4px 8px;
+.profile-tabs .ant-tabs-tab:hover .ant-tabs-tab-btn,
+.profile-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #00a1e0;
+  font-weight: bold;
 }
