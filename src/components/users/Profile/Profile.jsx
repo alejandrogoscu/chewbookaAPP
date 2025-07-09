@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProfileTabs from './ProfileTabs/ProfileTabs';
 import { useState } from 'react';
 import './profile.css';
+import Logout from '../../auth/Logout/Logout';
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -32,6 +33,8 @@ const Profile = () => {
         </section>
 
         <ProfileTabs user={user} userPosts={userPosts} />
+
+        <Logout />
       </div>
     </>
   );

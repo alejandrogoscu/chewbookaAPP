@@ -59,7 +59,7 @@ export const authSlice = createSlice({
         state.token = null;
         state.posts = [];
         state.comments = [];
-        localStorage.removeItem('token');
+        localStorage.clear();
       })
       .addCase(getUserConnected.fulfilled, (state, action) => {
         state.isSuccess = true;
