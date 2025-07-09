@@ -24,19 +24,17 @@ const NewPost = () => {
     setData((prev) => ({ ...prev, images: file.originFileObj || file }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('title', data.title);
     formData.append('content', data.content);
     formData.append('image', data.images);
 
-    try {
-      await dispatch(createPost(formData));
-      navigate('/dashboard');
-    } catch (error) {
-      console.log(error);
-    }
+    dispatch(createPost(formData));
+
+    setData({ title: '', content: '', image: null });
+    navigate('/dashboard');
   };
 
   return (
