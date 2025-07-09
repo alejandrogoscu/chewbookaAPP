@@ -14,9 +14,9 @@ const Post = () => {
   return (
     <div>
       {posts.map((post) => (
-      <Link to={"/posts/" + post._id}>
+        <Link to={'/posts/' + post._id}>
         <PostCard key={post._id} {...post} />
-       </Link>
+        </Link>
       ))}
     </div>
   );
