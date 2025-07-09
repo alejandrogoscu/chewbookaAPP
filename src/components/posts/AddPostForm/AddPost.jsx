@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Form, Input, Button, Upload } from 'antd';
+import { Input, Button, Upload } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import { createPost } from '../../../features/posts/postsSlice';
+import './addPost.css';
 
 const NewPost = () => {
   const navigate = useNavigate();
@@ -38,22 +39,27 @@ const NewPost = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} encType="multipart/form-data" style={{ maxWidth: 600, margin: '0 auto' }}>
-      <div style={{ marginBottom: 16 }}>
-        <label htmlFor="title">Título:</label>
+    <div className="addpost__container">
+      <form
+        className="addpost__form"
+        onSubmit={handleSubmit}
+        encType="multipart/form-data"
+        style={{ maxWidth: 600, margin: '0 auto' }}
+      >
+        <label className="addpost__label" htmlFor="title"></label>
         <Input
+          className="addposts__input"
           id="title"
           name="title"
           value={data.title}
           onChange={handleChange}
           required
-          placeholder="Ingrese título"
+          placeholder="Título del post"
         />
-      </div>
 
-      <div style={{ marginBottom: 16 }}>
-        <label htmlFor="content">Contenido:</label>
+        <label htmlFor="content"></label>
         <Input.TextArea
+          className="addpost__texarea"
           id="content"
           name="content"
           value={data.content}
@@ -62,19 +68,19 @@ const NewPost = () => {
           rows={5}
           placeholder="Ingrese contenido"
         />
-      </div>
 
-      <div style={{ marginBottom: 16 }}>
-        <label>Imagen:</label>
+        <label></label>
         <Upload beforeUpload={() => false} maxCount={1} onChange={handleImageChange} accept="image/*">
-          <Button icon={<UploadOutlined />}>Seleccionar imagen</Button>
+          <Button className="addpots_imgbtn" icon={<UploadOutlined />}>
+            Seleccionar imagen
+          </Button>
         </Upload>
-      </div>
 
-      <Button type="primary" htmlType="submit">
-        Crear post
-      </Button>
-    </form>
+        <Button className="addpost__btn" type="primary" htmlType="submit">
+          Publicar
+        </Button>
+      </form>
+    </div>
   );
 };
 
