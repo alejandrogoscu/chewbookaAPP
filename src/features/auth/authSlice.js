@@ -43,8 +43,8 @@ export const authSlice = createSlice({
         state.token = action.payload.token;
         state.posts = action.payload.posts;
         state.comments = action.payload.comments;
+        // El token ya se guarda correctamente en authService.js, no lo guardes aquí como JSON.stringify
         localStorage.setItem('user', JSON.stringify(action.payload.user));
-        localStorage.setItem('token', JSON.stringify(action.payload.token));
         localStorage.setItem('posts', JSON.stringify(action.payload.posts));
         localStorage.setItem('comments', JSON.stringify(action.payload.comments));
       })
@@ -59,6 +59,7 @@ export const authSlice = createSlice({
         state.token = null;
         state.posts = [];
         state.comments = [];
+        localStorage.removeItem('token');
       })
       .addCase(getUserConnected.fulfilled, (state, action) => {
         state.isSuccess = true;
