@@ -24,7 +24,7 @@ const NavbarMobile = () => {
         </li>
 
         <li className="navbarm__item">
-          <NavLink to="/buscador" className={({ isActive }) => `navbarm__link ${isActive ? 'active' : ''}`}>
+          <NavLink to="/search" className={({ isActive }) => `navbarm__link ${isActive ? 'active' : ''}`}>
             <span className="navbarm__icon">
               <SecurityScanFilled style={{ fontSize: '32px', color: '#00a1e0' }} />
             </span>
@@ -40,7 +40,7 @@ const NavbarMobile = () => {
         </li>
 
         <li className="navbarm__item">
-          <NavLink to="/addpost" className={({ isActive }) => `navbarm__link ${isActive ? 'active' : ''}`}>
+          <NavLink to="/newpost" className={({ isActive }) => `navbarm__link ${isActive ? 'active' : ''}`}>
             <span className="navbarm__icon">
               <EditFilled style={{ fontSize: '30px', color: '#00a1e0' }} />
             </span>

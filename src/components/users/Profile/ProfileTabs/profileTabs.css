@@ -1,0 +1,25 @@
+/* profileTabs.css */
+.profile-tabs .ant-tabs-tab {
+  color: #ffffff !important;
+  transition: color 0.3s ease;
+}
+
+.profile-tabs .ant-tabs-tab:hover {
+  color: #00a1e0;
+}
+
+.profile-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #00a1e0;
+  font-weight: bold;
+}
+
+.profile-tabs .ant-tabs-ink-bar {
+  background-color: #00a1e0;
+}
+
+/* Opcional: fondo de la barra de tabs */
+.profile-tabs .ant-tabs-nav {
+  background-color: #000000;
+  border-radius: 8px;
+  padding: 4px 8px;
+}

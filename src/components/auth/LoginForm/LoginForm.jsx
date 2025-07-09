@@ -58,7 +58,6 @@ export const Login = () => {
     <>
       <form className="loginform__form" onSubmit={onSubmit}>
         <label className="loginform__label">
-          {/* Correo Electrónico: */}
           <CustomInput
             className="loginform__input"
             name="email"
@@ -70,7 +69,6 @@ export const Login = () => {
         </label>
 
         <label className="loginform__label">
-          {/*  Contraseña: */}
           <InputPass
             className="loginform__input"
             name="password"
@@ -84,6 +82,7 @@ export const Login = () => {
           Iniciar Sesión
         </CustomButton>
       </form>
+      {isError && <p style={{ color: 'red' }}>{message || 'Error al iniciar sesión'}</p>}
     </>
   );
 };

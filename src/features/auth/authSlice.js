@@ -43,8 +43,14 @@ export const authSlice = createSlice({
         state.token = action.payload.token;
         state.posts = action.payload.posts;
         state.comments = action.payload.comments;
+        // El token ya se guarda correctamente en authService.js, no lo guardes aquí como JSON.stringify
+        localStorage.setItem('user', JSON.stringify(action.payload.user));
+        localStorage.setItem('posts', JSON.stringify(action.payload.posts));
+        localStorage.setItem('comments', JSON.stringify(action.payload.comments));
       })
       .addCase(login.rejected, (state, action) => {
+        state.user = null;
+        state.token = null;
         state.isError = true;
         state.message = action.payload;
       })
@@ -53,6 +59,20 @@ export const authSlice = createSlice({
         state.token = null;
         state.posts = [];
         state.comments = [];
+        localStorage.removeItem('token');
+      })
+      .addCase(getUserConnected.fulfilled, (state, action) => {
+        state.isSuccess = true;
+        state.user = action.payload.user;
+        state.posts = action.payload.posts;
+      })
+      .addCase(getUserConnected.pending, (state) => {
+        state.isSuccess = false;
+      })
+
+      .addCase(getUserConnected.rejected, (state, action) => {
+        state.isError = true;
+        state.message = action.payload;
       });
   },
 });
@@ -80,6 +100,17 @@ export const logout = createAsyncThunk('auth/logout', async () => {
     return await authService.logout();
   } catch (error) {
     console.log(error);
+  }
+});
+
+export const getUserConnected = createAsyncThunk('auth/getUserConnected', async (_, thunkAPI) => {
+  try {
+    const token = thunkAPI.getState().auth.token;
+    return await authService.getUserConnected(token);
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+    return thunkAPI.rejectWithValue(message);
   }
 });
 

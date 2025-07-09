@@ -1,0 +1,48 @@
+.profile__container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile__infoCard {
+  margin: 0 auto;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile__userInfo-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 10px 15px;
+}
+
+.profile__userImg {
+  width: 200px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+}
+
+.profile__userText {
+  text-align: center;
+}
+
+.profile__username {
+  color: var(--accent);
+}
+
+.profille__userBio-wrapper {
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding: 15px;
+
+  border-top: 1px solid var(--accent);
+}
